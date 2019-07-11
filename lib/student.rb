@@ -107,7 +107,8 @@ class Student
      
     first_student_row = DB[:conn].execute(sql)[0]
     self.new_from_db(first_student_row)
-  end
+  end.first
+end
     
   def self.first_x_students_in_grade_10(x)
     sql = <<-SQL
