@@ -106,8 +106,8 @@ end
     LIMIT 1
      SQL
      
-    first_student_row = DB[:conn].execute(sql)[0]
-    self.new_from_db(first_student_row)
+    DB[:conn].execute(sql).collect do |row|
+      self.new_from_db(row)
      end.first
   end
   
